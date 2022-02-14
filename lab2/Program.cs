@@ -12,7 +12,12 @@ namespace lab2
             sqlConnection.Open();
             Console.WriteLine(sqlConnection.State);
 
+            SqlCommand command = new SqlCommand();
+            command.CommandText = "Insert into tlPersonas(Nombres, Apellidos) values ('Yazmin', 'Vasquez')";
 
+            command.Connection = sqlConnection;
+            int Respuesta= command.ExecuteNonQuery(); //Devuelve cuantos registros fueron ejecutados
+            Console.WriteLine($"{Respuesta} registros afectados");
         }
     }
 }
